@@ -1,5 +1,7 @@
 package com.devsuperior.exm02.entites;
 
+import java.util.Objects;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -62,8 +64,23 @@ public class Participante {
 	public void setAtividade(Atividade atividade) {
 		this.atividade = atividade;
 	}
-	
-	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Participante other = (Participante) obj;
+		return Objects.equals(id, other.id);
+	}
 	
 	
 }

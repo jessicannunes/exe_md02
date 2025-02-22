@@ -1,6 +1,8 @@
 package com.devsuperior.exm02.entites;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +26,9 @@ public class Participante {
 	@ManyToOne
 	@JoinColumn(name="atividade_id", nullable = false)
 	private Atividade atividade;
+	
+	@OneToMany(mappedBy="id.participante")
+	private Set<AtividadeParticipante> atividades = new HashSet<>();
 	
 	public Participante() {
 	}

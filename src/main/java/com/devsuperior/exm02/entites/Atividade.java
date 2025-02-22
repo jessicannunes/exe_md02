@@ -1,8 +1,10 @@
 package com.devsuperior.exm02.entites;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,6 +36,8 @@ public class Atividade {
 	@OneToMany(mappedBy = "atividade")
 	private List<Participante> participantes = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "id.atividade")
+	private Set<AtividadeParticipante> atividades = new HashSet<>();
 	
 	public Atividade() {
 	}

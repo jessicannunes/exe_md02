@@ -1,6 +1,6 @@
 package com.devsuperior.exm02.entites;
 
-import java.util.HashSet;
+
 import java.util.Objects;
 import java.util.Set;
 
@@ -27,8 +27,6 @@ public class Participante {
 	@JoinColumn(name="atividade_id", nullable = false)
 	private Atividade atividade;
 	
-	@OneToMany(mappedBy="id.participante")
-	private Set<AtividadeParticipante> atividades = new HashSet<>();
 	
 	public Participante() {
 	}

@@ -36,8 +36,6 @@ public class Atividade {
 	@OneToMany(mappedBy = "atividade")
 	private List<Participante> participantes = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "id.atividade")
-	private Set<AtividadeParticipante> atividades = new HashSet<>();
 	
 	public Atividade() {
 	}

@@ -1,13 +1,14 @@
 package com.devsuperior.exm02.entites;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,9 +21,8 @@ public class Participante {
 	private String nome;
 	private String email;
 	
-	@ManyToOne
-	@JoinColumn(name="atividade_id", nullable = false)
-	private Atividade atividade;
+	@ManyToMany(mappedBy = "participantes")
+    private List<Atividade> atividades = new ArrayList<>();
 	
 	public Participante() {
 	}
@@ -56,13 +56,14 @@ public class Participante {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 
-	public Atividade getAtividade() {
-		return atividade;
+	public List<Atividade> getAtividades() {
+		return atividades;
 	}
 
-	public void setAtividade(Atividade atividade) {
-		this.atividade = atividade;
+	public void setAtividades(List<Atividade> atividades) {
+		this.atividades = atividades;
 	}
 
 	@Override
